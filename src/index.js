@@ -11,7 +11,8 @@ app.post("/api/chart", async (req, res) => {
         res.setHeader("Content-Disposition", "attachment; filename=chart.png");
         res.send(chart);
     }catch (e) {
-        console.log(e)
+        res.setHeader('Content-Type', 'application/json')
+        res.send(e.toLocaleString() ).sendStatus(500)
     }
 });
 
